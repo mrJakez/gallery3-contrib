@@ -192,13 +192,13 @@ class exif_gps_event_Core {
     // Make sure there are actually map-able items to display.
     $album_items_count = ORM::factory("item", $album_id)
       ->join("exif_coordinates", "items.id", "exif_coordinates.item_id")
-      //->viewable()
+      ////->viewable()
       ->order_by("exif_coordinates.latitude", "ASC")
       ->descendants_count();
     $user_items_count = ORM::factory("item")
       ->join("exif_coordinates", "items.id", "exif_coordinates.item_id")
       ->where("items.owner_id", "=", $item->owner_id)
-      //->viewable()
+      ////->viewable()
       ->order_by("exif_coordinates.latitude", "ASC")
       ->count_all();
 
